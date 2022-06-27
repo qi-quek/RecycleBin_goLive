@@ -44,8 +44,7 @@ func main() {
 	SERVER_ADDRESS := os.Getenv("SERVER_ADDRESS")
 
 	muxRouter := mux.NewRouter() //provide new mux router instance
-	// muxRouter.Handle("/image/", http.StripPrefix("/image/", http.FileServer(http.Dir("./image"))))
-	// handles '/' and all sub-routes
+
 	muxRouter.PathPrefix("/image").Handler(http.StripPrefix("/image", http.FileServer(http.Dir("image"))))
 
 	muxRouter.HandleFunc("/signup", helper.SignUp)
@@ -57,8 +56,6 @@ func main() {
 
 	// muxRouter.HandleFunc("/api/{NRIC}", #input function here).Methods("GET", "DELETE", "POST", "PUT")
 
-	//http -> not HTTPS for basic test
-	http.ListenAndServe(SERVER_ADDRESS, muxRouter)
-	// http.ListenAndServeTLS(":8081", "D://go_lang//go_school//assignments//QuekQi_GoLive//server//ssl//localhost.cert.pem", "D://go_lang//go_school//assignments//QuekQi_GoLive//server//ssl//localhost.key.pem", muxRouter)
+	http.ListenAndServeTLS(SERVER_ADDRESS, "./ssl/localhost.cert.pem", "./ssl/localhost.key.pem", muxRouter)
 
 }

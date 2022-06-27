@@ -59,8 +59,6 @@ func DropOff(res http.ResponseWriter, req *http.Request) {
 	//from body content type
 	if req.Header.Get("Content-type") == "application/json" {
 
-		//*any difference
-		// if req.Method == http.MethodPost
 		if req.Method == "POST" {
 
 			//per instance var
@@ -134,39 +132,12 @@ func DropOff(res http.ResponseWriter, req *http.Request) {
 			//------------------------------------------------------------------------\
 			url := "https://localhost:9091/api/v1/users/" + params["id"] + "/transactions"
 
-			// resp, err := http.Post(url, "application/json",
-			// 	bytes.NewBuffer(json_data))
-			// structure.Info.Println("Sent data to main webserver")
-
 			//*------------------------
 			client := &http.Client{
 				Transport: &http.Transport{
 					TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 				},
 			}
-
-			// // get environment variables for connecting to user microservice.
-			// API_ROOT_URL := os.Getenv("API_URL_USERS")
-			// API_KEY := os.Getenv("API_KEY_USERS")
-			// API_USERNAME := os.Getenv("API_USERNAME_USERS")
-
-			// // set the endpoint query string
-			// endpoint := fmt.Sprintf(`%s/addtransaction`, API_ROOT_URL)
-
-			// // POST request body json to be send to microservice.
-			// outboundInputs := Transaction{
-			// 	Item:   inboundBody.ItemCat,
-			// 	Phone:  payload.Phone,
-			// 	Points: inboundBody.Points,
-			// 	Weight: inboundBody.Weight,
-			// }
-
-			// reqBody, err := json.Marshal(outboundInputs)
-			// if err != nil {
-			// 	customErr := errors.New(`[TRANX-CTL] fail to parse request body`)
-			// 	utils.SendErrorMsgToClient(&w, customErr)
-			// 	return
-			// }
 
 			// preparing the information to send out
 			apiReq, err := http.NewRequest("POST", url, bytes.NewBuffer(json_data))

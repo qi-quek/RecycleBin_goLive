@@ -59,3 +59,10 @@ Info: 2022/06/26 23:24:53 dropOffEN.go:200: [MS-USERS]: transaction added and as
 Info: 2022/06/27 17:05:24 LoginEN.go:105: connection failed
 Info: 2022/06/27 17:07:00 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
 Info: 2022/06/27 17:07:12 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/27 18:08:05 signup.go:281: map[]
+Info: 2022/06/27 18:08:32 signup.go:281: map[]
+Info: 2022/06/27 18:09:58 signup.go:281: map[]
+Info: 2022/06/27 18:11:21 signup.go:281: map[]
+Info: 2022/06/27 18:14:00 signup.go:277: Account has been created
+Info: 2022/06/27 18:14:00 signup.go:281: response message- map[]
+Info: 2022/06/27 18:19:09 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful

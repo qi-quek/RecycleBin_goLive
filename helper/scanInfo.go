@@ -118,10 +118,9 @@ func ScanInfo(res http.ResponseWriter, req *http.Request) {
 
 		fmt.Println("check for values value-", values)
 
-		//*-----change http://localhost:8080/12345 to http://localhost:8080/ + "nric string"
 		//------------------------------------------------------------------------
 		//*uncomment from here for testing
-		postURL := "http://localhost:8080/user/" + params["id"]
+		postURL := "https://localhost:8080/user/" + params["id"]
 		resp, err := http.Post(postURL, "application/json",
 			bytes.NewBuffer(json_data))
 
@@ -137,7 +136,7 @@ func ScanInfo(res http.ResponseWriter, req *http.Request) {
 
 		//*http.Post(postURL, "application/json", bytes.NewBuffer(json_data))
 
-		redirectURL := "http://localhost:8080/user/" + params["id"]
+		redirectURL := "https://localhost:8080/user/" + params["id"]
 
 		http.Redirect(res, req, redirectURL, http.StatusSeeOther)
 

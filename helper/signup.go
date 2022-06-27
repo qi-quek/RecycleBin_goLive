@@ -131,7 +131,7 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 		//first validation check for empty strongs of all user inputs
 		structure.Wg.Add(1)
 		go func() {
-			// fmt.Println("1 entered")
+			fmt.Println("1 entered")
 			if userMobile == "" || userPassword == "" || userName == "" {
 				fmt.Println("test check - empty input")
 				regDataInternal.WrongCredential = true
@@ -139,7 +139,7 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 				regDataInternal.WrongCredential = false
 			}
 			structure.Wg.Done()
-			// fmt.Println("1 done")
+			fmt.Println("1 done")
 		}()
 
 		///-------------------end of first check for empty input---------------------
@@ -151,14 +151,14 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 		//a)all numbers, b)8 numbers only, c)number must start with an 8 or 9
 		structure.Wg.Add(1)
 		go func() {
-			// fmt.Println("2 entered")
+			fmt.Println("2 entered")
 			if _, err := strconv.Atoi(userMobile); err != nil || len(userMobile) != 8 || string(userMobile[0]) != "8" && userMobile[:1] != "9" { //can use string(bytes[0]) or byte[:1] for string comparison
 				regDataInternal.NotEightNumber = true
 			} else {
 				regDataInternal.NotEightNumber = false
 			}
 			structure.Wg.Done()
-			// fmt.Println("2 done")
+			fmt.Println("2 done")
 		}()
 
 		//-------------------end of 2nd check for mobile input---------------------
@@ -171,7 +171,7 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 
 		structure.Wg.Add(1)
 		go func() {
-			// fmt.Println("3 entered")
+			fmt.Println("3 entered")
 			match, _ := regexp.MatchString("[^a-zA-Z ]", userName)
 			if match {
 				regDataInternal.NameNumber = true
@@ -179,7 +179,7 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 				regDataInternal.NameNumber = false
 			}
 			structure.Wg.Done()
-			// fmt.Println("3 done")
+			fmt.Println("3 done")
 		}()
 
 		//-----------------------------end of 3rd check------------------------------
@@ -187,7 +187,7 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 
 		// structure.Wg.Add(1)
 		// go func() {
-		// fmt.Println("4 entered")
+		fmt.Println("4 entered")
 
 		//fourth check - non go routine for concurrency
 		//fourth check to ensure that password length is at least 6
@@ -259,7 +259,7 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 		//if post to webserver fails
 		//redirect back to login page
 		if err != nil {
-			structure.Info.Println("connection failed")
+			structure.Error.Println("connection failed")
 			dataInternal.ErrorConnection = true
 			http.Redirect(res, req, "/login", http.StatusSeeOther)
 			return
@@ -278,10 +278,9 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 			regDataInternal.SignUpSuccess = true
 		}
 
-		structure.Info.Println(authDataResponse.Msg)
+		structure.Info.Println("response message-", authDataResponse.Msg)
+		fmt.Println("test check-final")
 		//*--------------end of interace with dylan's web portal-----------------------
-
-		// //----------------------------
 
 	}
 
