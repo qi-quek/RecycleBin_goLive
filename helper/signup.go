@@ -232,14 +232,15 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 		//joins the array of string back into a single string
 		//usage to print out
 		newWord = strings.Join(newUserArr[:], " ")
-
-		values := map[string]string{"phone": userMobile, "name": newWord, "password": userPassword}
-
-		fmt.Println("test check for values-map", values)
-
 		//*------------------------------end of self test----------------------------
 
+		//passing required data for url post method to webserver
+		values := map[string]string{"phone": userMobile, "name": newWord, "password": userPassword}
+
+		// fmt.Println("test check for values-map", values)
+
 		//*------------------start of interfacing with dylan's webportal------------
+		//marshalling of map to webserver
 		json_data, err := json.Marshal(values)
 
 		if err != nil {
@@ -248,11 +249,15 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 			return
 		}
 
+		//setting post URL
 		postURL := "https://localhost:9091/api/v1/register"
 
+		//posting to webserver
 		resp, err := http.Post(postURL, "application/json",
 			bytes.NewBuffer(json_data))
 
+		//if post to webserver fails
+		//redirect back to login page
 		if err != nil {
 			structure.Info.Println("connection failed")
 			dataInternal.ErrorConnection = true
@@ -266,8 +271,10 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 
 		json.Unmarshal(reqBody, &authDataResponse)
 
+		//if response body from post request is true
+		//user account has been created on database side
 		if authDataResponse.Ok == true {
-			structure.Info.Println("user with mobile", userMobile, "created successfully")
+			structure.Info.Println("Account has been created")
 			regDataInternal.SignUpSuccess = true
 		}
 
