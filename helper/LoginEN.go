@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"server/structure"
+	"strconv"
 )
 
 type dataAuthExternal struct {
@@ -50,38 +51,38 @@ func Login(res http.ResponseWriter, req *http.Request) {
 
 		///-------------------first check for empty input---------------------
 
-		// structure.Wg.Add(1)
-		// go func() {
-		// 	fmt.Println("1 entered")
-		// 	if userMobile == "" || userPassword == "" || len(userPassword) < 7 {
-		// 		dataInternal.WrongCredential = true
-		// 	} else {
-		// 		dataInternal.WrongCredential = false
-		// 	}
-		// 	structure.Wg.Done()
-		// 	fmt.Println("1 done")
-		// }()
+		structure.Wg.Add(1)
+		go func() {
+			fmt.Println("1 entered")
+			if userMobile == "" || userPassword == "" || len(userPassword) < 6 {
+				dataInternal.WrongCredential = true
+			} else {
+				dataInternal.WrongCredential = false
+			}
+			structure.Wg.Done()
+			fmt.Println("1 done")
+		}()
 
-		// ///-------------------end of first check for empty input---------------------
+		///-------------------end of first check for empty input---------------------
 
-		// ///-------------------2nd check for not a number input---------------------
-		// // _, err := strconv.Atoi(userMobile)
+		///-------------------2nd check for not a number input---------------------
+		// _, err := strconv.Atoi(userMobile)
 
-		// if _, err := strconv.Atoi(userMobile); err != nil || len(userMobile) != 8 || string(userMobile[0]) != "8" && userMobile[:1] != "9" { //can use string(bytes[0]) or byte[:1] for string comparison
+		if _, err := strconv.Atoi(userMobile); err != nil || len(userMobile) != 8 || string(userMobile[0]) != "8" && userMobile[:1] != "9" { //can use string(bytes[0]) or byte[:1] for string comparison
 
-		// 	dataInternal.NotEightNumber = true
+			dataInternal.NotEightNumber = true
 
-		// 	return
-		// } else {
-		// 	dataInternal.NotEightNumber = false
-		// }
+		} else {
+			dataInternal.NotEightNumber = false
+		}
 
-		// //----------------end of 2nd check for not a number input------------------
+		//----------------end of 2nd check for not a number input------------------
+		structure.Wg.Wait()
 
-		// if dataInternal.NotEightNumber == true || dataInternal.WrongCredential == true {
-		// 	http.Redirect(res, req, "/login", http.StatusSeeOther)
-		// 	return
-		// }
+		if dataInternal.NotEightNumber == true || dataInternal.WrongCredential == true {
+			http.Redirect(res, req, "/login", http.StatusSeeOther)
+			return
+		}
 
 		//*----------------------code for posting to main webserver----------------------------
 

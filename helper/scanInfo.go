@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 	"server/structure"
 	"strconv"
@@ -43,10 +42,11 @@ func ScanInfo(res http.ResponseWriter, req *http.Request) {
 		inputCat := req.FormValue("material")
 		inputWeight := req.FormValue("weight")
 
-		fmt.Println("test check for inputCat-", inputCat)
+		// fmt.Println("test check for inputCat-", inputCat)
 
 		catInternal := cases.Title(language.Und, cases.NoLower).String(strings.ToLower(inputCat))
 
+		//check if user input for material is within map of recyclables
 		if _, ok := structure.RecycleWeightage[catInternal]; !ok {
 
 			InternalScanTemplate.WrongCategory = true
@@ -57,8 +57,7 @@ func ScanInfo(res http.ResponseWriter, req *http.Request) {
 			url := "/scan/" + params["id"]
 
 			http.Redirect(res, req, url, http.StatusSeeOther)
-			fmt.Println("test check1b for for entry")
-			fmt.Println("test check for url value", url)
+
 			return
 		}
 
@@ -66,11 +65,13 @@ func ScanInfo(res http.ResponseWriter, req *http.Request) {
 
 		var tempSlice []string
 
-		//store the scanned line into variable input
+		//append input category into tempslice for subsequent post method to API
 		tempSlice = append(tempSlice, catInternal)
 
 		//*---------commented away to test for input in browser
 
+		//check if numbers entered is a numeric value
+		//can use regex as an altenative
 		if _, err := strconv.Atoi(inputWeight); err != nil {
 
 			InternalScanTemplate.WrongValue = true
@@ -85,6 +86,7 @@ func ScanInfo(res http.ResponseWriter, req *http.Request) {
 		}
 		InternalScanTemplate.WrongValue = false
 
+		//append input weight into tempslice for subsequent post method to API
 		tempSlice = append(tempSlice, inputWeight)
 		//*up till here is manual user input--------------------------
 
@@ -107,18 +109,20 @@ func ScanInfo(res http.ResponseWriter, req *http.Request) {
 			//cannot assign to individual variables too
 			output = wordSlice
 		}
-		fmt.Println("test word 1", output[0])
-		fmt.Println("test word 2", output[1])
+		// fmt.Println("test word 1", output[0])
+		// fmt.Println("test word 2", output[1])
 
+		//convert data for post method into json data
 		values := map[string]string{"ItemCategory": output[0], "ItemWeight": output[1]}
 		json_data, err := json.Marshal(values)
 		if err != nil {
-			log.Fatal(err)
+			structure.Error.Println("error converting input data to json")
 		}
 
-		fmt.Println("check for values value-", values)
+		// fmt.Println("check for values value-", values)
 
 		//------------------------------------------------------------------------
+		//post to user handler, drop off value for further point tabulation
 		//*uncomment from here for testing
 		postURL := "https://localhost:8080/user/" + params["id"]
 		resp, err := http.Post(postURL, "application/json",
