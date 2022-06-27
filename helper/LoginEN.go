@@ -7,7 +7,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"server/structure"
-	"strconv"
 )
 
 type dataAuthExternal struct {
@@ -50,42 +49,41 @@ func Login(res http.ResponseWriter, req *http.Request) {
 		userPassword := req.FormValue("password")
 
 		///-------------------first check for empty input---------------------
-		if userMobile == "" || userPassword == "" {
-			fmt.Println("test check - empty input")
-			dataInternal.WrongCredential = true
-			//redirect back to login page if user has input empty credential
-			http.Redirect(res, req, "/login", http.StatusSeeOther)
-			return
-		}
 
-		dataInternal.WrongCredential = false
-		///-------------------end of first check for empty input---------------------
+		// structure.Wg.Add(1)
+		// go func() {
+		// 	fmt.Println("1 entered")
+		// 	if userMobile == "" || userPassword == "" || len(userPassword) < 7 {
+		// 		dataInternal.WrongCredential = true
+		// 	} else {
+		// 		dataInternal.WrongCredential = false
+		// 	}
+		// 	structure.Wg.Done()
+		// 	fmt.Println("1 done")
+		// }()
 
-		///-------------------2nd check for not a number input---------------------
-		// _, err := strconv.Atoi(userMobile)
+		// ///-------------------end of first check for empty input---------------------
 
-		if _, err := strconv.Atoi(userMobile); err != nil || len(userMobile) != 8 || string(userMobile[0]) != "8" && userMobile[:1] != "9" { //can use string(bytes[0]) or byte[:1] for string comparison
-			dataInternal.NotEightNumber = true
-			fmt.Println("testcheck NotNumber-", dataInternal.NotEightNumber)
-			//redirect back to login page if
-			http.Redirect(res, req, "/login", http.StatusSeeOther)
-			return
-		}
+		// ///-------------------2nd check for not a number input---------------------
+		// // _, err := strconv.Atoi(userMobile)
 
-		dataInternal.NotEightNumber = false
-		//----------------end of 2nd check for not a number input------------------
+		// if _, err := strconv.Atoi(userMobile); err != nil || len(userMobile) != 8 || string(userMobile[0]) != "8" && userMobile[:1] != "9" { //can use string(bytes[0]) or byte[:1] for string comparison
 
-		//*------------------------for testing phase--------------------------------
+		// 	dataInternal.NotEightNumber = true
 
-		// structure.IsLoggedin = true
-		// structure.LoggedInVal = "5"
-		// url := "scan/" + structure.LoggedInVal
-		// http.Redirect(res, req, url, http.StatusSeeOther)
-		// return
+		// 	return
+		// } else {
+		// 	dataInternal.NotEightNumber = false
+		// }
 
-		//*-----------------------delete ^^^ after testing---------------------------------
+		// //----------------end of 2nd check for not a number input------------------
 
-		// 	//*----------------------code for posting to main webserver----------------------------
+		// if dataInternal.NotEightNumber == true || dataInternal.WrongCredential == true {
+		// 	http.Redirect(res, req, "/login", http.StatusSeeOther)
+		// 	return
+		// }
+
+		//*----------------------code for posting to main webserver----------------------------
 
 		values := map[string]interface{}{"phone": userMobile, "password": userPassword}
 
