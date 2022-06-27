@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+      <link rel = "stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4/7/0/css/font-awesome.min.css">
+      <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
+      <meta charset="UTF-8">
+      <title>ScanInfo</title>
+  </head>
+
+  <section class="section">
+    <div class="container">
+        <div class="columns is-centered is-multiline">
+
+        <img src="http://localhost:8080/image/recycleW.jpg" width="600" height="400">
+            <div class="column is-9 has-text-centered">
+              <p class="is-size-5 has-text-weight-bold">You can start the recycling process by scanning your recyclables</p>
+              <p class="is-size-5 has-text-weight-bold">Kindly use the scanner to scan in your recyclables</p>
+            </div>
+        </div>
+      </div>
+  </section>
+
+  
+
+    <div class="container">
+      <div class="columns is-centered is-multiline">
+        <div class="column is-3 has-text-centered">
+          <form action="" method="POST">
+            <div class="columns is-centered is-multiline">
+              
+              <!-- row #1 starts -->
+                <div class="column is-12 has-text-centered">
+                  <input class="input" type="text" name="material" placeholder="Input material">
+                  <input class="input" type="text" name="weight" placeholder="Input Weight(grams)">
+
+                  
+                </div>
+              <!-- row #1 ends -->
+              <!-- row #2 starts-->
+                <div class="column is-12 has-text-centered">
+
+                {{if .WrongCategory}}
+                  Please only scan the materials that are recyclable by the bin
+                  Try again
+                {{end}}
+                <br>
+
+                {{if .WrongValue}}
+                  Please only input numerical values in gram
+                  Try again
+                {{end}}
+
+                </div>
+              <!-- row #2 ends -->
+              <!-- row #3 starts-->
+                <div class="column is-12 has-text-centered">
+                
+                  <!-- field input starts -->
+                  <div class="field">
+                    <input type="submit" class="button ml-4 is-primary" value="scan"/>
+                    <a href="/logout"  class="button mr-4 is-danger">Log Out</a>
+
+                  </div>
+                  <!-- field input ends -->
+                </div>  
+              <!-- row #3 ends -->
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+
+
+
+</html>

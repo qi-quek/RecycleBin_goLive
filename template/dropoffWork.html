@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+      <link rel = "stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4/7/0/css/font-awesome.min.css">
+      <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
+      <meta charset="UTF-8">
+      <title>LOGIN</title>
+  </head>
+
+  <section class="section">
+    <div class="container">
+        <div class="columns is-centered is-multiline">
+        <img src="image/recycleW.jpg" width="500" height="333">
+        <div class="column is-3 has-text-centered">
+            <h1>You have recycled {{.Weight}} grams worth of {{.Material}}</h1>
+            <h1>The points you have received are {{.Points}}</h1>
+          </div>
+        </div>
+      </div>
+  </section>
+  <br>
+
+    <div class="container">
+        <div class="columns is-centered is-multiline">
+          <div class="column is-6 has-text-centered">
+            <ul>
+                <h1>Would you still like to continue recycling other material?<h1>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+  <br>
+
+
+  
+
+    <div class="container">
+      <div class="columns is-centered is-multiline">
+        <div class="column is-3 has-text-centered">
+          <form action="" method="POST">
+            <div class="columns is-centered is-multiline">
+              
+              <!-- row #1 starts -->
+                <div class="column is-12 has-text-centered">
+                  <h1>If yes, please continue<h1>
+                </div>
+              <!-- row #1 ends -->
+              <!-- row #2 starts-->
+                <div class="column is-12 has-text-centered">
+                    <a href="/login">continue recycling</a>
+
+                </div>
+              <!-- row #2 ends -->
+              <!-- row #3 starts-->
+                <div class="column is-12 has-text-centered">
+                
+                  <!-- field input starts -->
+                <div class="field">
+                  <a href="/logout">Log out</a></h2>
+                </div>
+                  <!-- field input ends -->
+                </div>  
+              <!-- row #3 ends -->
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+
+
+
+</html>

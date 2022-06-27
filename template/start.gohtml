@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+      <link rel = "stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4/7/0/css/font-awesome.min.css">
+      <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
+      <meta charset="UTF-8">
+      <title>LOGIN</title>
+  </head>
+  
+
+  <section class="section">
+    <div class="container">
+        <div class="columns is-centered is-multiline">
+
+  <img src="image/gopher.jpg" width="500" height="333">
+          <div class="column is-9 has-text-centered">
+            <p class="is-size-2 has-text-success has-text-weight-bold">Welcome to Best Recycling Campaign</p>
+          </div>
+          <p class="is-size-5 has-text-weight-bold">You can recycle materials and get store vouchers here!</p>
+          <div class="column is-12 has-text-centered">
+           <p class="is-size-5 has-text-weight-bold">The recyclable materials and respective points per gram:</p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+    <div class="container">
+      <div class="columns is-centered is-multiline">
+        <div class="column is-3 has-text-centered">
+          <form action="" method="POST">
+            <div class="columns is-centered is-multiline">
+              
+              <!-- row #1 starts -->
+                <div class="column is-12 has-text-centered">
+                  <div class="columns is-centered is-multiline">
+            <div class="column is-12 has-text-centered">
+            <ul>
+              <p class="is-size-6">
+                {{range $key, $value := .}}
+                <li>{{$key}} = {{$value}} points(s) <l/i>
+                {{end}}
+                  </p>
+            </ul>
+          </div>
+         </div>
+                  
+                </div>
+              <!-- row #1 ends -->
+              <!-- row #2 starts-->
+                <div class="column is-12 has-text-centered">
+
+                </div>
+              <!-- row #2 ends -->
+              
+              
+              <!-- row #3 starts-->
+                <div class="column is-9 has-text-centered">
+                
+                  <!-- field input starts -->
+                <div class="field">
+                  <a href="/signup"  class="button ml-4 is-primary">Sign Up</a>
+                   <a href="/login" class="button mr-4 is-info">Login</a>
+                  </a>
+                </div>
+                  <!-- field input ends -->
+                </div>  
+              <!-- row #3 ends -->
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+
+
+
+</html>

@@ -1,0 +1,61 @@
+ERROR: 2022/06/19 00:51:34 handler.go:134: Incorrecr Recyclable material
+ERROR: 2022/06/19 02:21:25 functions.go:18: Weight entered is not a number
+Info: 2022/06/19 02:21:25 handler.go:182: Not a number
+ERROR: 2022/06/20 03:59:14 handler.go:89: Incorrect Recyclable material
+Info: 2022/06/21 19:03:13 Login.go:86: connection failed
+Info: 2022/06/21 19:03:13 Login.go:86: connection failed
+ERROR: 2022/06/22 03:43:30 dropOff.go:91: Incorrect Recyclable material
+ERROR: 2022/06/22 03:46:00 dropOff.go:91: Incorrect Recyclable material
+ERROR: 2022/06/22 03:49:25 functions.go:18: Weight entered is not a number
+Info: 2022/06/22 03:49:25 dropOff.go:119: Not a number
+ERROR: 2022/06/22 14:52:27 dropOff.go:92: Incorrect Recyclable material
+Info: 2022/06/25 13:34:44 Login.go:107: connection failed
+Info: 2022/06/26 18:32:06 LoginEN.go:106: connection failed
+Info: 2022/06/26 18:33:13 LoginEN.go:106: connection failed
+Info: 2022/06/26 18:54:40 dropOffEN.go:119: Sent data to main webserver
+Info: 2022/06/26 18:54:40 dropOffEN.go:121: &{403 Forbidden 403 HTTP/2.0 2 0 map[Content-Length:[72] Content-Type:[application/json] Date:[Sun, 26 Jun 2022 10:54:40 GMT]] {0xc00020c780} 72 [] false false map[] 0xc000172c00 0xc0000d0160} response from post
+ERROR: 2022/06/26 18:54:40 scanInfo.go:129: error posting to own API
+Info: 2022/06/26 18:54:40 dropOffEN.go:119: Sent data to main webserver
+Info: 2022/06/26 18:54:40 dropOffEN.go:121: &{403 Forbidden 403 HTTP/2.0 2 0 map[Content-Length:[72] Content-Type:[application/json] Date:[Sun, 26 Jun 2022 10:54:40 GMT]] {0xc00020c900} 72 [] false false map[] 0xc000173100 0xc0000d0160} response from post
+ERROR: 2022/06/26 18:54:40 scanInfo.go:129: error posting to own API
+Info: 2022/06/26 19:04:20 dropOffEN.go:119: Sent data to main webserver
+Info: 2022/06/26 19:04:20 dropOffEN.go:121: &{403 Forbidden 403 HTTP/2.0 2 0 map[Content-Length:[72] Content-Type:[application/json] Date:[Sun, 26 Jun 2022 11:04:20 GMT]] {0xc000300300} 72 [] false false map[] 0xc0001c2e00 0xc000128370} response from post
+ERROR: 2022/06/26 19:04:20 scanInfo.go:129: error posting to own API
+Info: 2022/06/26 19:04:20 dropOffEN.go:119: Sent data to main webserver
+Info: 2022/06/26 19:04:20 dropOffEN.go:121: &{403 Forbidden 403 HTTP/2.0 2 0 map[Content-Length:[72] Content-Type:[application/json] Date:[Sun, 26 Jun 2022 11:04:20 GMT]] {0xc000300480} 72 [] false false map[] 0xc0001c3700 0xc000128370} response from post
+ERROR: 2022/06/26 19:04:20 scanInfo.go:129: error posting to own API
+Info: 2022/06/26 19:08:14 dropOffEN.go:119: Sent data to main webserver
+Info: 2022/06/26 19:08:14 dropOffEN.go:121: &{403 Forbidden 403 HTTP/2.0 2 0 map[Content-Length:[72] Content-Type:[application/json] Date:[Sun, 26 Jun 2022 11:08:14 GMT]] {0xc000202180} 72 [] false false map[] 0xc000204400 0xc0002c4160} response from post
+ERROR: 2022/06/26 19:08:14 scanInfo.go:129: error posting to own API
+Info: 2022/06/26 19:08:14 dropOffEN.go:119: Sent data to main webserver
+Info: 2022/06/26 19:08:14 dropOffEN.go:121: &{403 Forbidden 403 HTTP/2.0 2 0 map[Content-Length:[72] Content-Type:[application/json] Date:[Sun, 26 Jun 2022 11:08:14 GMT]] {0xc000484000} 72 [] false false map[] 0xc000428400 0xc0002c4160} response from post
+ERROR: 2022/06/26 19:08:14 scanInfo.go:129: error posting to own API
+Info: 2022/06/26 19:41:05 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+ERROR: 2022/06/26 19:41:05 scanInfo.go:129: error posting to own API
+Info: 2022/06/26 19:41:06 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+ERROR: 2022/06/26 19:41:06 scanInfo.go:129: error posting to own API
+Info: 2022/06/26 19:42:45 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/26 19:42:45 dropOffEN.go:204: &{POST https://localhost:9091/api/v1/users/1/transactions HTTP/1.1 1 1 map[Authorization:[Bearer ewoJCSJhbGciOiAiU0hBNTEyIiwKCQkidHlwIiA6ICJKV1QiCgl9.eyJpZCI6MSwibmFtZSI6Ikphc3BlciIsInBob25lIjoiODEyMzQ1NjciLCJpc3MiOiJHTy1UTy1aRVJPIiwiZXhwIjoxNjU2MjQ0MDYxNTAyfQ==.Y2NkYmYxN2JjNzFjYWM4ZDM4ODVmYTE1ZjdmZWUwZmVhOWI3Y2FjN2UyNTIzZTE4MjFjOGY4Mzg0YTQxOWIyNTNmMmJmNDYzYzdhODJlYTYzY2Y5YzYwMzc3MWExMDdjNmU5MDlmNDUwNjFiZmZjNjAyNjhjMDRhMzU3YTFiNDg=] Content-Type:[application/json]] {} 0x7546c0 53 [] false localhost:9091 map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc000012098} response from post
+ERROR: 2022/06/26 19:42:45 scanInfo.go:129: error posting to own API
+Info: 2022/06/26 19:42:46 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/26 19:42:46 dropOffEN.go:204: &{POST https://localhost:9091/api/v1/users/1/transactions HTTP/1.1 1 1 map[Authorization:[Bearer ewoJCSJhbGciOiAiU0hBNTEyIiwKCQkidHlwIiA6ICJKV1QiCgl9.eyJpZCI6MSwibmFtZSI6Ikphc3BlciIsInBob25lIjoiODEyMzQ1NjciLCJpc3MiOiJHTy1UTy1aRVJPIiwiZXhwIjoxNjU2MjQ0MDYxNTAyfQ==.Y2NkYmYxN2JjNzFjYWM4ZDM4ODVmYTE1ZjdmZWUwZmVhOWI3Y2FjN2UyNTIzZTE4MjFjOGY4Mzg0YTQxOWIyNTNmMmJmNDYzYzdhODJlYTYzY2Y5YzYwMzc3MWExMDdjNmU5MDlmNDUwNjFiZmZjNjAyNjhjMDRhMzU3YTFiNDg=] Content-Type:[application/json]] {} 0x7546c0 53 [] false localhost:9091 map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc000012098} response from post
+ERROR: 2022/06/26 19:42:46 scanInfo.go:129: error posting to own API
+Info: 2022/06/26 19:42:46 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/26 19:42:46 dropOffEN.go:204: &{POST https://localhost:9091/api/v1/users/1/transactions HTTP/1.1 1 1 map[Authorization:[Bearer ewoJCSJhbGciOiAiU0hBNTEyIiwKCQkidHlwIiA6ICJKV1QiCgl9.eyJpZCI6MSwibmFtZSI6Ikphc3BlciIsInBob25lIjoiODEyMzQ1NjciLCJpc3MiOiJHTy1UTy1aRVJPIiwiZXhwIjoxNjU2MjQ0MDYxNTAyfQ==.Y2NkYmYxN2JjNzFjYWM4ZDM4ODVmYTE1ZjdmZWUwZmVhOWI3Y2FjN2UyNTIzZTE4MjFjOGY4Mzg0YTQxOWIyNTNmMmJmNDYzYzdhODJlYTYzY2Y5YzYwMzc3MWExMDdjNmU5MDlmNDUwNjFiZmZjNjAyNjhjMDRhMzU3YTFiNDg=] Content-Type:[application/json]] {} 0x7546c0 53 [] false localhost:9091 map[] map[] <nil> map[]   <nil> <nil> <nil> 0xc000012098} response from post
+ERROR: 2022/06/26 19:42:46 scanInfo.go:129: error posting to own API
+Info: 2022/06/26 19:46:52 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/26 19:48:41 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/26 19:52:20 signup.go:144: user with mobile 81234568 created successfully
+Info: 2022/06/26 19:57:59 signup.go:146: user with mobile 81234569 created successfully
+Info: 2022/06/26 19:57:59 signup.go:150: map[]
+Info: 2022/06/26 20:35:06 dropOffEN.go:200: [MS-Users]- All fields need to be filled.
+Info: 2022/06/26 20:36:40 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/26 23:07:47 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/26 23:08:51 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/26 23:09:27 dropOffEN.go:200: [MS-Users]- All fields need to be filled.
+Info: 2022/06/26 23:15:31 signup.go:150: user with mobile 81111111 created successfully
+Info: 2022/06/26 23:15:31 signup.go:154: map[]
+Info: 2022/06/26 23:24:53 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/27 17:05:24 LoginEN.go:105: connection failed
+Info: 2022/06/27 17:07:00 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/27 17:07:12 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful

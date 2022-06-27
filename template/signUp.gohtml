@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+      <link rel = "stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4/7/0/css/font-awesome.min.css">
+      <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
+      <meta charset="UTF-8">
+      <title>LOGIN</title>
+  </head>
+
+ 
+  
+  <section class="section">
+    <div class="container">
+        <div class="columns is-centered is-multiline">
+        <img src="image/signUp.jpg" width="500" height="333">
+          <div class="column is-9 has-text-centered">
+            <p class="is-size-2 has-text-danger-light has-text-weight-bold">Begin Your Recycling Journey Here</p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+  
+
+    <div class="container">
+      <div class="columns is-centered is-multiline">
+        <div class="column is-3 has-text-centered">
+          <form action="" method="POST">
+            <div class="columns is-centered is-multiline">
+              
+              <!-- row #1 starts -->
+                <div class="column is-12 has-text-centered">
+                  
+                  <!-- Field Input starts -->
+                  <div class="field">
+                      <input class="input" type="text" name="mobile" placeholder="Input Mobile: +65(8 digits)">
+                      <input class="input" type="text" name="name" placeholder="Input Name: All letters">
+                      <input class="input" type="password" name="password" placeholder="Input Password">
+                    </div>
+                  </div>
+                  <!-- Field Input ends -->
+                </div>
+              <!-- row #1 ends -->
+              <!-- row #2 starts-->
+                <div class="column is-12 has-text-centered">
+              
+             
+              
+              {{if .NotEightNumber}}
+                You need to key in 8 digits - that starts with 8 or 9 - for your mobile number.<br>
+              {{end}}
+                
+              {{if .WrongCredential}}
+                You have not logged in, or have entered an invalid mobile, name or password.<br>
+              {{end}}
+
+              {{if .NameNumber}}
+                You need to enter letters only for your name.<br>
+              {{end}}
+
+              {{if .LessThanSix}}
+                Ensure that your password is at least 6 characters long.<br>
+              {{end}}
+
+
+              {{if .SignUpSuccess}}
+                Account has been successfully created.<br>
+                Login to start Recycling.<br>
+              {{end}}
+
+
+
+
+
+                </div>
+              <!-- row #2 ends -->
+              <!-- row #3 starts-->
+                <div class="column is-12 has-text-centered">
+                
+                  <!-- field input starts -->
+                    <input type="submit" class="button ml-2 is-primary" value="Sign Up"/>
+                    <a href="/"  class="button mr-4 is-warning">Home</a>
+                  <!-- field input ends -->
+                </div>  
+                <div class="column is-12 has-text-centered">
+                
+                  <!-- field input starts -->
+                  <!-- field input ends -->
+                </div>  
+              <!-- row #3 ends -->
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+
+
+
+</html>
