@@ -1,6 +1,7 @@
 package helper
 
 import (
+	"fmt"
 	"net/http"
 	"server/structure"
 )
@@ -21,24 +22,41 @@ func Start(res http.ResponseWriter, req *http.Request) {
 //to logout and clear all global variable
 func LogOut(res http.ResponseWriter, req *http.Request) {
 
-	//redirect back to sign in page if user is not logged in
-	if !structure.IsLoggedin {
+	myCookie, err := req.Cookie(fmt.Sprint(structure.LoggedInVal))
+
+	if err != nil {
 		http.Redirect(res, req, "/", http.StatusSeeOther) //change this later
 		return
 	}
 
+	//redirect back to sign in page if user is not logged in
+	// if !structure.IsLoggedin {
+	// 	http.Redirect(res, req, "/", http.StatusSeeOther) //change this later
+	// 	return
+	// }
+
 	//*Change all global var back to false or empty string
 	//clear IsLoggedin status
 	structure.IsLoggedin = false
-
-	//clear loggedinval
-	structure.LoggedInVal = ""
 
 	//clear data
 	data = dataStruct{}
 
 	//clear JwtToken
 	structure.JwtToken = ""
+
+	fmt.Println(structure.LoggedInVal)
+
+	// //clear cookie
+	myCookie = &http.Cookie{
+		Name:   fmt.Sprint(structure.LoggedInVal),
+		Value:  "",
+		MaxAge: -1,
+	}
+	http.SetCookie(res, myCookie)
+
+	//clear loggedinval
+	structure.LoggedInVal = ""
 
 	//clear Internscan
 	structure.Tpl.ExecuteTemplate(res, "logOut.gohtml", nil)

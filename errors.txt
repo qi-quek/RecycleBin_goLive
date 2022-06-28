@@ -66,3 +66,18 @@ Info: 2022/06/27 18:11:21 signup.go:281: map[]
 Info: 2022/06/27 18:14:00 signup.go:277: Account has been created
 Info: 2022/06/27 18:14:00 signup.go:281: response message- map[]
 Info: 2022/06/27 18:19:09 dropOffEN.go:200: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/28 17:58:41 LoginEN.go:161: map[]
+Info: 2022/06/28 18:00:21 LoginEN.go:161: map[]
+Info: 2022/06/28 19:11:47 LoginEN.go:170: map[]
+Info: 2022/06/28 19:13:13 LoginEN.go:170: map[]
+Info: 2022/06/28 19:13:34 dropOffEN.go:171: [MS-USERS]: transaction added and associated to user, successful
+Info: 2022/06/28 19:14:35 LoginEN.go:171: map[]
+Info: 2022/06/28 19:16:13 LoginEN.go:171: map[]
+Info: 2022/06/28 19:21:33 LoginEN.go:171: map[]
+Info: 2022/06/28 19:22:16 LoginEN.go:171: map[]
+Info: 2022/06/28 19:22:42 signup.go:281: response message- map[]
+Info: 2022/06/28 19:26:22 LoginEN.go:171: map[]
+Info: 2022/06/28 19:26:42 signup.go:279: Account has been created
+Info: 2022/06/28 19:26:42 signup.go:283: response message- map[]
+Info: 2022/06/28 19:27:47 signup.go:279: Account has been created
+Info: 2022/06/28 19:27:47 signup.go:283: response message- map[]

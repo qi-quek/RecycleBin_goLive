@@ -8,6 +8,8 @@ import (
 	"net/http"
 	"server/structure"
 	"strconv"
+
+	uuid "github.com/satori/go.uuid"
 )
 
 type dataAuthExternal struct {
@@ -34,14 +36,23 @@ var dataInternal = dataInputStruct{}
 
 func Login(res http.ResponseWriter, req *http.Request) {
 
-	if structure.IsLoggedin == true {
-		//*change to structure.LoggedInVal when testing
-		url := "scan/" + structure.LoggedInVal
+	// if structure.IsLoggedin == true {
+	// 	//*change to structure.LoggedInVal when testing
+	// 	url := "scan/" + structure.LoggedInVal
 
-		// //*remove the url below - it is only for self test
-		// url := "scan/" + "hi"
+	// 	// //*remove the url below - it is only for self test
+	// 	// url := "scan/" + "hi"
 
-		http.Redirect(res, req, url, http.StatusSeeOther)
+	// 	http.Redirect(res, req, url, http.StatusSeeOther)
+	// }
+
+	myCookie, err := req.Cookie(fmt.Sprint(structure.LoggedInVal))
+
+	if err == nil {
+		// url := "scan/" + structure.LoggedInVal
+		url := "scan/" + myCookie.Name
+		http.Redirect(res, req, url, http.StatusSeeOther) //change this later
+		return
 	}
 
 	//*from here on it is getting input from template/user--------------------------------------------------------
@@ -126,10 +137,23 @@ func Login(res http.ResponseWriter, req *http.Request) {
 
 			if loginDataVerify.Ok == true {
 
-				fmt.Println()
+				var testArr []string
 
+				testArr = append(testArr, loginDataVerify.Data.Name)
+
+				//create session
+				id := uuid.NewV4() //
+				cookie := &http.Cookie{
+					Name:  fmt.Sprint(loginDataVerify.Data.Id),
+					Value: id.String(),
+					// Unparsed: testArr, //token value,
+				}
+
+				http.SetCookie(res, cookie)
+
+				//*----------self test check
 				//change global login variable to true
-				structure.IsLoggedin = true
+				// structure.IsLoggedin = true //-----------------------------to uncomment
 
 				//set var NotNumber to false
 				dataInternal.NotEightNumber = false
@@ -143,6 +167,8 @@ func Login(res http.ResponseWriter, req *http.Request) {
 				structure.LoggedInVal = fmt.Sprint(loginDataVerify.Data.Id)
 
 				structure.JwtToken = loginDataVerify.Data.Token
+
+				structure.Info.Println(loginDataVerify.Msg)
 
 				//update Id value into url string, for further calling into
 				//scan handler

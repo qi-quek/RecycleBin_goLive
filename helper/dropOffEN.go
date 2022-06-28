@@ -40,7 +40,16 @@ var data = dataStruct{}
 
 func DropOff(res http.ResponseWriter, req *http.Request) {
 
-	if !structure.IsLoggedin {
+	// if !structure.IsLoggedin {
+	// 	http.Redirect(res, req, "/login", http.StatusSeeOther) //change this later
+	// 	return
+	// }
+
+	params := mux.Vars(req)
+
+	_, err := req.Cookie(params["id"])
+
+	if err != nil {
 		http.Redirect(res, req, "/login", http.StatusSeeOther) //change this later
 		return
 	}
@@ -51,9 +60,9 @@ func DropOff(res http.ResponseWriter, req *http.Request) {
 
 	fmt.Println("test check  initial data check", data)
 
-	//*----------------------
-	params := mux.Vars(req)
-	//*----------------------
+	// //*----------------------
+	// params := mux.Vars(req)
+	// //*----------------------
 
 	//check for json
 	//from body content type

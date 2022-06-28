@@ -24,7 +24,15 @@ var InternalScanTemplate = ScanTemplate{}
 
 func ScanInfo(res http.ResponseWriter, req *http.Request) {
 
-	if !structure.IsLoggedin {
+	// if !structure.IsLoggedin {
+	// 	http.Redirect(res, req, "/login", http.StatusSeeOther) //change this later
+	// 	return
+	// }
+	params := mux.Vars(req)
+
+	_, err := req.Cookie(params["id"])
+
+	if err != nil {
 		http.Redirect(res, req, "/login", http.StatusSeeOther) //change this later
 		return
 	}
@@ -32,7 +40,7 @@ func ScanInfo(res http.ResponseWriter, req *http.Request) {
 	// InternalScanTemplate.WeightMap = structure.RecycleWeightage
 
 	c := make(chan []string)
-	params := mux.Vars(req)
+	// params := mux.Vars(req)
 
 	//*go func so template can run
 	//*while we wait for input

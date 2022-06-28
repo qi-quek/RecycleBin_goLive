@@ -271,6 +271,8 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 
 		json.Unmarshal(reqBody, &authDataResponse)
 
+		fmt.Println(authDataResponse)
+
 		//if response body from post request is true
 		//user account has been created on database side
 		if authDataResponse.Ok == true {

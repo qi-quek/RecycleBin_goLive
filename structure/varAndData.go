@@ -46,3 +46,9 @@ var Wg sync.WaitGroup
 
 //jwt token
 var JwtToken string
+
+type User struct {
+	Username string
+	Password []byte
+	token    string
+}
